@@ -14,13 +14,25 @@ $( document ).ready(function() {
 			return word + "ay";
   }
   
+  function sentenceToPigLatin(phrase){
+     var sentence = phrase.split('  ');
+     for(var a = 0; a < sentence.length; a++){
+       return sentence[a]+"ay";
+     }
+     
+     
+  }
+  console.log(sentenceToPigLatin("Have a wonderful day human"));
+  
+  
   	$("#submit").click(function(){
   		 var message = $("#text").val();
   		 var phrase = ToPigLatin(message);
-  	 $("#result").text(phrase);
-  	 
-  	 
-  	 
+        var words = sentenceToPigLatin(message);
+   
+  //	 $("#result").text(phrase);
+	 $("#result").text(words);
+
   	 
 
   	});
