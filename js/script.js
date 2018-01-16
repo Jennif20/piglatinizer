@@ -16,16 +16,16 @@ $( document ).ready(function() {
 	var sentence2 = word.slice(1,word.length);
 	if(vowels[0] === letter || 
 	    vowels[1] === letter|| 
-	    vowels[1] === letter||
 	    vowels[2] === letter|| 
 	    vowels[3] === letter||
 	    vowels[4] === letter){
 	        
-            return sentence2 + letter + "ay ";   
-	    
+	    	    return word + "ay ";
+
 	}
 	else{
-	    return word + "ay "
+	                return sentence2 + letter + "ay ";   
+
 	}
 	
   }
