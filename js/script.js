@@ -11,26 +11,41 @@ $( document ).ready(function() {
   
   
   function ToPigLatin(word){
-			return word + "ay";
+	var vowels = ["a","e","i","o","u"];
+	var letter = word.slice(0,1);
+	var sentence2 = word.slice(1,word.length);
+	if(vowels[0] === letter || 
+	    vowels[1] === letter|| 
+	    vowels[1] === letter||
+	    vowels[2] === letter|| 
+	    vowels[3] === letter||
+	    vowels[4] === letter){
+	        
+            return sentence2 + letter + "ay ";   
+	    
+	}
+	else{
+	    return word + "ay "
+	}
+	
   }
   
   function sentenceToPigLatin(phrase){
-     var sentence = phrase.split('  ');
+     var sentence = phrase.split(' ');
+     var newsentence = "";
      for(var a = 0; a < sentence.length; a++){
-       return sentence[a]+"ay";
+      newsentence = newsentence + ToPigLatin(sentence[a]);
      }
-     
+    return newsentence;
      
   }
-  console.log(sentenceToPigLatin("Have a wonderful day human"));
+//  console.log(sentenceToPigLatin("Have a wonderful day human"));
   
   
   	$("#submit").click(function(){
   		 var message = $("#text").val();
-  		 var phrase = ToPigLatin(message);
         var words = sentenceToPigLatin(message);
-   
-  //	 $("#result").text(phrase);
+        
 	 $("#result").text(words);
 
   	 
