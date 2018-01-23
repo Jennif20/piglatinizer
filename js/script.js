@@ -13,19 +13,28 @@ $( document ).ready(function() {
   function ToPigLatin(word){
 	var vowels = ["a","e","i","o","u"];
 	var letter = word.slice(0,1);
+	var letters = word.slice(0,2);
+	var consonant = ["ch","th","sh","st"];
 	var sentence2 = word.slice(1,word.length);
+	var sentence3 = word.slice(2,word.length);
+	
 	if(vowels[0] === letter || 
 	    vowels[1] === letter|| 
 	    vowels[2] === letter|| 
 	    vowels[3] === letter||
 	    vowels[4] === letter){
-	        
-	    	    return word + "ay ";
+            return word + "ay ";
 
 	}
+	else if(consonant[0] === letters || 
+	        consonant[1] === letters ||
+	        consonant[2] === letters ||
+	        consonant[3] === letters){
+	            return sentence3 + letters + "ay";
+	}
 	else{
-	                return sentence2 + letter + "ay ";   
-
+	    
+	    return sentence2 + letter + "ay ";   
 	}
 	
   }
@@ -39,19 +48,32 @@ $( document ).ready(function() {
     return newsentence;
      
   }
-//  console.log(sentenceToPigLatin("Have a wonderful day human"));
+  function ToEnglish(input){
+      var sentence4 = input.slice(input.length - 2, input.length);
+      var sentence5 = input.slice(input.length - 3, input.length);
+      
+  }
+  console.log(ToEnglish("ellohay"));
   
+  function backToEnglish(word2){
+      var sentences = word2.split(' ');
+      var NewSentence = ''
+      
+      
+  }
   
   	$("#submit").click(function(){
-  		 var message = $("#text").val();
+  		var message = $("#text").val();
         var words = sentenceToPigLatin(message);
-        
-	 $("#result").text(words);
+        $("#result").text(words);
 
-  	 
 
   	});
-  
+    
+    $("#submit2").click(function(){
+        var latinMessage =$("#piglatin").val();
+        $("#result").text();
+    })
   
   
   
